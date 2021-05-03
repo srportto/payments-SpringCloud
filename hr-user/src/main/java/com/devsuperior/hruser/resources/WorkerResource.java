@@ -1,6 +1,6 @@
 package com.devsuperior.hruser.resources;
 
-import com.devsuperior.hruser.entities.Worker;
+import com.devsuperior.hruser.entities.User;
 import com.devsuperior.hruser.repositories.WorkerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,14 +28,14 @@ public class WorkerResource {
     private WorkerRepository repository;
 
     @GetMapping
-    public ResponseEntity<List<Worker>> findAll(){
-        List<Worker> list = repository.findAll();
+    public ResponseEntity<List<User>> findAll(){
+        List<User> list = repository.findAll();
         return ResponseEntity.ok(list);
 
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Worker> findById(@PathVariable Long id){
+    public ResponseEntity<User> findById(@PathVariable Long id){
 
         /* comentando pois o trecho de codigo foi usado apenas para forçar uma exceção e teste do hytrix
         int x =1;
@@ -46,8 +46,8 @@ public class WorkerResource {
 
         logger.info("PORT = " +env.getProperty("local.server.port"));
 
-        Worker  worker = repository.findById(id).get();
-        return ResponseEntity.ok(worker);
+        User user = repository.findById(id).get();
+        return ResponseEntity.ok(user);
 
     }
 }
