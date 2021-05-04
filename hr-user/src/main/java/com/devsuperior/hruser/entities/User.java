@@ -24,6 +24,8 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @Column(unique = true)  //informa para o banco que essa coluna(e-mail) tem que ser unica
     private String email;
     private String password;
 
@@ -33,4 +35,8 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
+
+    public User() {
+        super();
+    }
 }
